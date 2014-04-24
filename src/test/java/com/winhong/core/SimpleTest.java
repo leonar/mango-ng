@@ -19,6 +19,7 @@ import java.util.Date;
  */
 public class SimpleTest {
     protected BrowserEmulator be;
+
     @Test
     public void testWebdriver() {
         be = new BrowserEmulator();
@@ -40,6 +41,7 @@ public class SimpleTest {
         be.quit();
     }
 
+    @Test
     public void testSimple() {
         System.out.println(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
         System.out.println();

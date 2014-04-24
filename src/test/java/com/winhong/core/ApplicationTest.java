@@ -188,19 +188,20 @@ public class ApplicationTest extends BaseTest {
         clickCheck(be, "//button[@id='delBtn']", "//button[@id='deleteUserInfoBtn']");
         be.click("//button[@id='deleteUserInfoBtn']");
         // 检查这个应用是否被删除了
-        be.expectElementExistOrNot(false, String.format("//a[@id='%s_detail_d']", config.getAppname()), 4000);
+        be.expectElementExistOrNot(false, String.format("//a[@id='%s_detail_d']", config.getAppname()), 3000);
 
         // 最后删除服务
-        if (config.getBuyService() != null) {
+        if (serviceName != null) {
+            logger.info("serviceName=" + serviceName);
             clickCheck(be, "//a[@id='af_services']", "//button[@id='slBuyBtn']");
-            String sx = "//a[substring(@href, string-length(@href) - string-length('%s')+1) = '%s']";
-            clickCheck(be, String.format(sx, serviceName, serviceName), "//button[@id='sdDeleteBtn']");
+            String sx = "//p/a[substring(@href, string-length(@href) - string-length('%s')+1) = '%s' and text()='%s']";
+            clickCheck(be, String.format(sx, serviceName, serviceName, getMsg("man_service_list_viewdetail")), "//button[@id='sdDeleteBtn']");
             be.click("//button[@id='sdDeleteBtn']");
             be.expectElementExistOrNot(true, "//button[@id='sdConfirmBtn']", 2000);
             be.click("//button[@id='sdConfirmBtn']");
-            be.expectElementExistOrNot(true, "//div[@id='slCardMsgDiv']", 3000);
+            be.expectElementExistOrNot(true, "//button[@id='slBuyBtn']", 2000);
             // 检查服务是否已经删除了
-            be.expectElementExistOrNot(false, String.format(sx, serviceName, serviceName), 1000);
+            be.expectElementExistOrNot(false, String.format(sx, serviceName, serviceName, getMsg("man_service_list_viewdetail")), 2000);
         }
         logout(be);
     }

@@ -481,7 +481,7 @@ MF21:
   m_uri: '.orchard2.com'
 
 uploadKeys:  # 应用上传测试配置key集合
-  - MF4
+#  - MF4
 #  - MF5
 #  - MF6
 #  - MF7
@@ -495,7 +495,7 @@ uploadKeys:  # 应用上传测试配置key集合
 #  - MF15
 #  - MF16
 #  - MF17
-#  - MF18
+  - MF18
 #  - MF19
 #  - MF20
 modifyKeys:  # 应用修改测试配置key集合
