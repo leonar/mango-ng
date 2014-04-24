@@ -1,0 +1,11 @@
+--- # 文件管理
+
+big_file: 'php-mysql-big.zip' # 大于50M的文件
+war_file: 'spring_mysql.war'
+zip_file: 'php-mysql.zip'
+zip_big_file: 'php-mysql-big.zip'
+
+# 设置file的可见性，使其对于selenium可见
+file_visiable: &visiable >
+  $('#fileChoose').eq(0).attr('style','height:20px;opacity:1;display:block;
+  position:static;transform:translate(0px, 0px) scale(1)')

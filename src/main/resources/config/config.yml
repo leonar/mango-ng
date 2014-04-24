@@ -1,0 +1,65 @@
+--- #公共配置
+
+# 浏览器类型：firefox/chrome/ie
+brower: 'chrome'
+# 运行测试的浏览器位置：local/remote
+brower_location: 'local'
+# 远程测试服务地址
+remote_url: 'http://10.0.0.154:4444/wd/hub'
+# 测试的url
+base_url: 'http://mango.orchard2.com'
+# 测试的url对应的ip地址
+base_url_ip: 'http://10.0.0.173'
+#base_url: 'http://localhost:9000'
+# wingarden服务地址
+wingarden_url: 'orchard2.com'
+# 测试用户名
+username: '22mm@22.com'
+# 区别前缀
+userpre: '22mm'
+# 测试密码
+password: '111111'
+# 测试完成后是否要删除这个测试账号 true/false
+delete_test_user: 'false'
+# 管理员账号
+username_admin: 'admin@orchard2.com'
+# 管理员密码
+password_admin: '11'
+# 默认等待后时间
+implicit_wait: 15
+# 浏览器语言：en/zh
+language: 'zh'
+# 滚动到页面底部js
+scroll_bottom: >
+  $('html, body').animate({ scrollTop: $(document).height()-$(window).height() });
+# 滚动到页面顶部js
+scroll_top: >
+  $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+# 选择文件上传类型时候的jquery实现
+vclick_even: |
+  setTimeout(function(){
+    $('.bootstrapchosen').trigger('liszt:open');
+    setTimeout(function(){
+      $('#arrangeway').val(%1$s).trigger('change');
+      $('#arrangeway_chzn_o_1').trigger('click');
+      $('.bootstrapchosen').trigger('liszt:updated');
+      $('footer').trigger('click');
+    },500)
+  },1)
+# 文件上传类型：0表示本地文件，1表示远程文件
+filetype: 0
+# 设置file的可见性，使其对于selenium可见
+file_visiable: &visiable >
+  $('#arrangelocalfile').eq(0).attr('style','height:20px;opacity:1;display:block;
+  position:static;transform:translate(0px, 0px) scale(1)')
+# 测试下yaml的锚语法
+file_visiable_1: *visiable
+# 访问应用的button点击的jquery实现
+window_open: >
+  u = $('#visitBtn').attr('onclick');
+  $('#visitBtn').attr('onclick', $('#visitBtn').attr('onclick').substring(
+  0, u.length - 1) + ", 'visitWindow')")
+
+# 启动应用的超时时间
+app_start_timeout: 300000

@@ -1,0 +1,9 @@
+--- # 登录模块
+
+- # 正确的用户名和密码
+  username: '22@22.com'
+  password: '111111'
+
+- # 错误的用户名和密码
+  username: 'kkk222'
+  password: '333333'

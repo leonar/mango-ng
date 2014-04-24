@@ -1,0 +1,18 @@
+--- # 修改环境变量模块
+
+# 上传文件路径
+upload_filename: 'php-info.zip'
+# 测试的应用名
+appname: 'phpinfo'
+# 部署实例数
+instance_num: 2
+# 修改前的环境变量值
+open_tag_pre: 'On'
+# 修改后的环境变量值
+open_tag_post: 'Off'
+# 运行语言
+runtimes: 'php5.2'
+# 使用框架
+framework: 'php'
+# 内存
+memory: '256'

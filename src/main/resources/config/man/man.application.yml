@@ -1,0 +1,502 @@
+--- #普通用户应用模块
+
+# 选择文件上传类型时候的jquery实现
+vclick_even: |
+  setTimeout(function(){
+    $('#arrangeway').trigger('liszt:open');
+    setTimeout(function(){
+      $('#arrangeway').val(%1$s).trigger('change');
+      $('#arrangeway_chzn_o_%1$s').trigger('click');
+      $('.bootstrapchosen').trigger('liszt:updated');
+      $('footer').trigger('click');
+    },500)
+  },1)
+# 远程文件选项时候先展开
+vremote_even: |
+  setTimeout(function(){
+      $('#arrangenetfile').trigger('liszt:open');
+    },1)
+# 设置file的可见性，使其对于selenium可见
+file_visiable: &visiable >
+  $('#arrangelocalfile').eq(0).attr('style','height:20px;opacity:1;display:block;
+  position:static;transform:translate(0px, 0px) scale(1)')
+# 测试下yaml的锚语法
+file_visiable_1: *visiable
+# 访问应用的button点击的jquery实现
+window_open: >
+  u = $('#visitBtn').attr('onclick');
+  $('#visitBtn').attr('onclick', $('#visitBtn').attr('onclick').substring(
+  0, u.length - 1) + ", 'visitWindow')")
+
+# 验证创建应用的主流程（java_web）
+MF4:
+  # 测试用例描述
+  description: '验证创建应用的主流程(java_web)'
+  # 上传文件路径
+  upload_filename: 'simple.war'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'simplejava'
+  # 部署实例数
+  instance_num: 2
+  # 测试应用的首页的内容
+  body_content: 'welcome to liyi site!'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'java_web'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（java+mysql）
+MF5:
+  # 测试用例描述
+  description: '验证创建应用的主流程(java+mysql)'
+  # 购买的服务名
+  by_service: 'MYSQL2'
+  # 购买的服务类型_版本
+  vendor_version: 'mysql_5.5'
+  # 上传文件路径
+  upload_filename: 'spring_mysql.war'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'mysqljava'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Hello Spring MySQL!'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'spring'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（java+postgresql）
+MF6:
+  # 测试用例描述
+  description: '验证创建应用的主流程(java+postgresql)'
+  # 购买的服务名
+  by_service: 'POSTGRESQL2'
+  # 购买的服务类型_版本
+  vendor_version: 'postgresql_9.1'
+  # 上传文件路径
+  upload_filename: 'spring-postgresql.war'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'postgresql'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Hello Spring'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'spring'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（java+oracle）
+MF7:
+  # 测试用例描述
+  description: '验证创建应用的主流程(java+oracle)'
+  # 购买的服务名
+  by_service: 'ORACLE2'
+  # 上传文件路径
+  upload_filename: 'spring-oracle.war'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'oracle'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Oracle - Spring Demo'
+  # 购买的服务类型_版本
+  vendor_version: 'oracle_11g'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'spring'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（php5.3+mysql）
+MF8:
+  # 测试用例描述
+  description: '验证创建应用的主流程(php5.3+mysql)'
+  # 购买的服务名
+  by_service: 'MYSQL2'
+  # 上传文件路径
+  upload_filename: 'php-mysql.zip'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'phpmysql'
+  # 部署实例数
+  instance_num: 2
+  # 测试应用的首页的内容
+  body_content: 'af-sample-wordpress'
+  # 购买的服务类型_版本
+  vendor_version: 'mysql_5.5'
+  # 运行语言
+  runtimes: 'php5.3'
+  # 使用框架
+  framework: 'php'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（php5.3+mongoDB）
+MF9:
+  # 测试用例描述
+  description: '验证创建应用的主流程(php5.3+mongoDB)'
+  # 购买的服务名
+  by_service: 'MONGODB2'
+  # 上传文件路径
+  upload_filename: 'simple-mongodb.zip'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'phpmongo'
+  # 部署实例数
+  instance_num: 2
+  # 测试应用的首页的内容
+  body_content: 'mongodb'
+  # 购买的服务类型_版本
+  vendor_version: 'mongodb_2.0'
+  # 运行语言
+  runtimes: 'php5.3'
+  # 使用框架
+  framework: 'php'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（php5.3+postgresql）
+MF10:
+  # 测试用例描述
+  description: '验证创建应用的主流程(php5.3+postgresql)'
+  # 购买的服务名
+  by_service: 'POSTGRESQL2'
+  # 上传文件路径
+  upload_filename: 'php-postgresql.zip'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'phppg'
+  # 部署实例数
+  instance_num: 2
+  # 测试应用的首页的内容
+  body_content: 'php'
+  # 购买的服务类型_版本
+  vendor_version: 'postgresql_9.1'
+  # 运行语言
+  runtimes: 'php5.3'
+  # 使用框架
+  framework: 'php'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（asp.net+mssql）
+MF11:
+  # 测试用例描述
+  description: '验证创建应用的主流程(asp.net+mssql)'
+  # 购买的服务名
+  by_service: 'MSSQL2'
+  # 上传文件路径
+  upload_filename: 'web2.zip'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'aspmssql'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'My ASP.NET Application'
+  # 购买的服务类型_版本
+  vendor_version: 'mssql_10.50.2500'
+  # 运行语言
+  runtimes: 'clr40'
+  # 使用框架
+  framework: 'aspdotnet'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（java+redis）
+MF12:
+  # 测试用例描述
+  description: '验证创建应用的主流程(java+redis)'
+  # 购买的服务名
+  by_service: 'REDIS2'
+  # 上传文件路径
+  upload_filename: 'javaweb-redis.war'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'redisxm'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Hello redis'
+  # 购买的服务类型_版本
+  vendor_version: 'redis_2.6'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'java_web'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（java+rabbitmq）
+MF13:
+  # 测试用例描述
+  description: '验证创建应用的主流程(java+rabbitmq)'
+  # 购买的服务名
+  by_service: 'RABBITMQ2'
+  # 上传文件路径
+  upload_filename: 'javaweb-rabbitmq.war'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'rabbitmqx'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Sending'
+  # 购买的服务类型_版本
+  vendor_version: 'rabbitmq_2.8'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'java_web'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（java7部署）
+MF14:
+  # 测试用例描述
+  description: '验证创建应用的主流程(java7部署)'
+  # 购买的服务名
+  by_service: 'MYSQL2'
+  # 购买的服务类型_版本
+  vendor_version: 'mysql_5.5'
+  # 上传文件路径
+  upload_filename: 'spring_mysql.war'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'java7'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Hello Spring MySQL!'
+  # 运行语言
+  runtimes: 'java7'
+  # 使用框架
+  framework: 'spring'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（python部署）
+MF15:
+  # 测试用例描述
+  description: '验证创建应用的主流程(python部署)'
+  # 上传文件路径
+  upload_filename: 'my-django.zip'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'django'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Hello Django!'
+  # 运行语言
+  runtimes: 'python2.7'
+  # 使用框架
+  framework: 'django'
+  # 内存
+  memory: '256'
+
+# 验证创建应用的主流程（node.js部署）
+MF16:
+  # 测试用例描述
+  description: '验证创建应用的主流程(node.js部署)'
+  # 上传文件路径
+  upload_filename: 'nodejs.zip'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'nodejs'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Hello from CloudFoundry'
+  # 运行语言
+  runtimes: 'node10'
+  # 使用框架
+  framework: 'node'
+  # 内存
+  memory: '256'
+
+# 远程文件应用部署（java+mysql）
+MF17:
+  # 测试用例描述
+  description: '远程文件应用部署(java+mysql)'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 1
+  # 设置file的可见性，使其对于selenium可见
+  file_visiable: >
+    $('#fileChoose').eq(0).attr('style','height:20px;opacity:1;display:block;
+    position:static;transform:translate(0px, 0px) scale(1)')
+  # 上传文件路径
+  upload_filename: 'simple.war'
+  # 测试的应用名
+  appname: 'remotejava'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'welcome to liyi site!'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'java_web'
+  # 内存
+  memory: '256'
+
+# 远程文件应用部署（spring+mysql）
+MF18:
+  # 测试用例描述
+  description: '远程文件应用部署(spring+mysql)'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 1
+  # 设置file的可见性，使其对于selenium可见
+  file_visiable: >
+    $('#fileChoose').eq(0).attr('style','height:20px;opacity:1;display:block;
+    position:static;transform:translate(0px, 0px) scale(1)')
+  # 购买的服务名
+  by_service: 'MYSQL2'
+  # 购买的服务类型_版本
+  vendor_version: 'mysql_5.5'
+  # 上传文件路径
+  upload_filename: 'spring_mysql.war'
+  # 测试的应用名
+  appname: 'remotemysql'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'Hello Spring MySQL!'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'spring'
+  # 内存
+  memory: '256'
+
+# 远程文件应用部署（php5.3+mongodb）
+MF19:
+  # 测试用例描述
+  description: '远程文件应用部署(php5.3+mongodb)'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 1
+  # 设置file的可见性，使其对于selenium可见
+  file_visiable: >
+    $('#fileChoose').eq(0).attr('style','height:20px;opacity:1;display:block;
+    position:static;transform:translate(0px, 0px) scale(1)')
+  # 购买的服务名
+  by_service: 'MONGODB2'
+  # 购买的服务类型_版本
+  vendor_version: 'mongodb_2.0'
+  # 上传文件路径
+  upload_filename: 'simple-mongodb.zip'
+  # 测试的应用名
+  appname: 'remotephpmango'
+  # 部署实例数
+  instance_num: 2
+  # 测试应用的首页的内容
+  body_content: 'mongodb'
+  # 运行语言
+  runtimes: 'php5.3'
+  # 使用框架
+  framework: 'php'
+  # 内存
+  memory: '256'
+
+# 远程文件应用部署（net+mssql）
+MF20:
+  # 测试用例描述
+  description: '远程文件应用部署(net+mssql)'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 1
+  # 设置file的可见性，使其对于selenium可见
+  file_visiable: >
+    $('#fileChoose').eq(0).attr('style','height:20px;opacity:1;display:block;
+    position:static;transform:translate(0px, 0px) scale(1)')
+  # 购买的服务名
+  by_service: 'MSSQL2'
+  # 购买的服务类型_版本
+  vendor_version: 'mssql_10.50.2500'
+  # 上传文件路径
+  upload_filename: 'web2.zip'
+  # 测试的应用名
+  appname: 'remotenetms'
+  # 部署实例数
+  instance_num: 1
+  # 测试应用的首页的内容
+  body_content: 'My ASP.NET Application'
+  # 运行语言
+  runtimes: 'clr40'
+  # 使用框架
+  framework: 'aspdotnet'
+  # 内存
+  memory: '256'
+
+# 修改应用: 实例数，内存，uri
+MF21:
+  # 测试用例描述
+  description: '修改应用: 实例数，内存分配修改'
+  # 上传文件路径
+  upload_filename: 'simple.war'
+  # 文件上传类型：0表示本地文件，1表示远程文件
+  filetype: 0
+  # 测试的应用名
+  appname: 'msimplejava'
+  # 测试应用的首页的内容
+  body_content: 'welcome to liyi site!'
+  # 运行语言
+  runtimes: 'java'
+  # 使用框架
+  framework: 'java_web'
+  # 部署实例数
+  instance_num: 1
+  # 内存
+  memory: '256'
+  # 修改实例数
+  m_instance_num: 2
+  # 修改内存
+  m_memory: '512'
+  # 修改的uri
+  m_uri: '.orchard2.com'
+
+uploadKeys:  # 应用上传测试配置key集合
+  - MF4
+#  - MF5
+#  - MF6
+#  - MF7
+#  - MF8
+#  - MF9
+#  - MF10
+#  - MF11
+#  - MF12
+#  - MF13
+#  - MF14
+#  - MF15
+#  - MF16
+#  - MF17
+#  - MF18
+#  - MF19
+#  - MF20
+modifyKeys:  # 应用修改测试配置key集合
+  - MF21

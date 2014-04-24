@@ -1,0 +1,19 @@
+<suite reruntimes="2" thread-count="10" parallel="classes" verbose="10"
+       name="core" annotations="JDK" time-out="1800000">
+
+    <test name="normaltests" junit="false" annotations="JDK" preserve-order="true">
+        <classes>
+            <class name="com.winhong.core.base.DataInitDestroy" />
+            <class name="com.winhong.core.base.BaseTest" />
+            <!--<class name="com.winhong.core.RegisterTest" />-->
+            <!--<class name="com.winhong.core.LoginTest"/>-->
+            <!--<class name="com.winhong.core.ModifyPasswordTest"/>-->
+            <class name="com.winhong.core.ApplicationTest"/>
+        </classes>
+        <!--<packages>-->
+            <!--<package name="com.winhong.core.*" />-->
+            <!--<package name="com.winhong.core.base.*" />-->
+        <!--</packages>-->
+    </test>
+
+</suite>

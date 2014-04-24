@@ -1,0 +1,48 @@
+--- #用户服务模块
+
+allservices:
+  -
+    # 套餐名
+    set_meal: 'MYSQL2'
+    # 修改后套餐名
+    new_set_meal: 'MYSQL3'
+  -
+    # 套餐名
+    set_meal: 'MSSQL2'
+    # 修改后套餐名
+    new_set_meal: 'MSSQL3'
+  -
+    # 套餐名
+    set_meal: 'MEMCACHED2'
+    # 修改后套餐名
+    new_set_meal: 'MEMCACHED3'
+  -
+    # 套餐名
+    set_meal: 'RABBITMQ2'
+    # 修改后套餐名
+    new_set_meal: 'RABBITMQ3'
+  -
+    # 套餐名
+    set_meal: 'POSTGRESQL2'
+    # 修改后套餐名
+    new_set_meal: 'POSTGRESQL3'
+  -
+    # 套餐名
+    set_meal: 'MONGODB2'
+    # 修改后套餐名
+    new_set_meal: 'MONGODB3'
+  -
+    # 套餐名
+    set_meal: 'ORACLE2'
+    # 修改后套餐名
+    new_set_meal: 'ORACLE3'
+  -
+    # 套餐名
+    set_meal: 'REDIS2'
+    # 修改后套餐名
+    new_set_meal: 'REDIS3'
+  -
+    # 套餐名
+    set_meal: 'FILESYSTEM2'
+    # 修改后套餐名
+    new_set_meal: 'FILESYSTEM3'
