@@ -162,11 +162,14 @@ public class ApplicationTest extends BaseTest {
             assertThat(be.getText("//td[@id='ad_insatnces']"), is(String.valueOf(config.getModifyInstanceNum())));
             assertThat(be.getText("//td[@id='ad_memory']"), is(config.getModifyMemory() + " M"));
             // 修改后开始检查新的uri是否可以使用
-            String currentUrl = be.getBrowserCore().getCurrentUrl();
+            String currentUrl = be.getBrowserCore().getWindowHandle();
             String newUrl = String.format("http://%s", realUri);
-            be.open(newUrl);
+            executeJS(be, String.format("window.open('%s', 'new_window')", newUrl));
+            be.selectWindow("new_window");
+            maximizeWindow(be);
             be.expectTextExistOrNot(true, config.getBodyContent(), 5000);
-            be.open(currentUrl);
+            be.getBrowserCore().close();
+            be.selectWindow(currentUrl);
         } else {
             // 启动应用
             be.click("//button[@id='controlBtn']");
