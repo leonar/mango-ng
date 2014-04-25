@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static com.winhong.mango.CommonUtil.*;
 import static com.winhong.mango.YamlUtil.getCommonStr;
-import static com.winhong.mango.YamlUtil.getMsg;
+import static com.winhong.mango.YamlUtil.getI18n;
 
 /**
  * 注册流程测试
@@ -31,7 +31,7 @@ public class RegisterTest extends BaseTest {
         be.type("//input[@id='repasswordR']", password);
         be.click("//input[@id='agree']");
         be.click("//button[@id='submitBtn']");
-        isTextPresent(be, getMsg("js_illegal_email"), true);
+        isTextPresent(be, getI18n("js_illegal_email"), true);
     }
 
     /**
@@ -47,7 +47,7 @@ public class RegisterTest extends BaseTest {
         be.type("//input[@id='repasswordR']", password);
         be.click("//input[@id='agree']");
         be.click("//button[@id='submitBtn']");
-        isTextPresent(be, String.format(getMsg("js_minlength"), 6), true);
+        isTextPresent(be, String.format(getI18n("js_minlength"), 6), true);
     }
 
     /**
@@ -65,7 +65,7 @@ public class RegisterTest extends BaseTest {
         be.click("//input[@id='agree']");
         be.click("//button[@id='submitBtn']");
         // 页面的js验证为两次密码不一致
-        isTextPresent(be, getMsg("messages.31008"), true);
+        isTextPresent(be, getI18n("messages.31008"), true);
     }
 
     /**
@@ -82,7 +82,7 @@ public class RegisterTest extends BaseTest {
         be.click("//input[@id='agree']");
         be.click("//button[@id='submitBtn']");
         // 成功
-        isTextPresent(be, getMsg("suc_register"), true);
+        isTextPresent(be, getI18n("suc_register"), true);
 
         // 使用注册成功用户登录
         be.pause(6000);

@@ -1,7 +1,6 @@
 package com.winhong.core;
 
 import com.winhong.core.base.BaseTest;
-import com.winhong.mango.AppConfig;
 import com.winhong.mango.RandomString;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
@@ -11,7 +10,6 @@ import java.util.Map;
 import static com.winhong.mango.CommonUtil.*;
 import static com.winhong.mango.YamlUtil.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
 /**
@@ -82,7 +80,7 @@ public class ModifyEnvTest extends BaseTest {
         be.click("//button[@id='controlBtn']");
         // 等待直到应用状态为运行中
         refreshUntilElementPresent(be, String.format("//td[@id='ad_status']/span[text()='%s']",
-                getMsg("man_application_list_status_run")), getCommonInt("app_start_timeout"));
+                getI18n("man_application_list_status_run")), getCommonInt("app_start_timeout"));
         // 访问应用
         be.click("//button[@id='visitBtn']");
         String curwindow = swithLastWindow(be);
@@ -107,7 +105,7 @@ public class ModifyEnvTest extends BaseTest {
         be.click("//button[@id='controlBtn']");
         // 等待直到应用状态为运行中
         refreshUntilElementPresent(be, String.format("//td[@id='ad_status']/span[text()='%s']",
-                getMsg("man_application_list_status_run")), getCommonInt("app_start_timeout"));
+                getI18n("man_application_list_status_run")), getCommonInt("app_start_timeout"));
         // 访问应用
         be.click("//button[@id='visitBtn']");
         curwindow = swithLastWindow(be);

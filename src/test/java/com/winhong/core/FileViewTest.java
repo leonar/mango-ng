@@ -6,8 +6,6 @@ import com.winhong.mango.RandomString;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 import static com.winhong.mango.CommonUtil.*;
@@ -92,7 +90,7 @@ public class FileViewTest extends BaseTest{
         be.click("//button[@id='controlBtn']");
         // 等待直到应用状态为运行中
         refreshUntilElementPresent(be, String.format("//td[@id='ad_status']/span[text()='%s']",
-                getMsg("man_application_list_status_run")), getCommonInt("app_start_timeout"));
+                getI18n("man_application_list_status_run")), getCommonInt("app_start_timeout"));
 
         // 展开tomcat文件夹
         be.expectElementExistOrNot(true, "//a[@id='filetree_1_a']", 2000);

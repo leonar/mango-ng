@@ -49,7 +49,7 @@ public class ApplicationTest extends BaseTest {
                     "//a[contains(@id, '%s')]", config.getVendorVersion()), true);
             // 获取需要选择的服务名
             serviceName = be.getText(
-                    String.format("//h4[@title='%s']", getMsg("man_service_list_name")));
+                    String.format("//h4[@title='%s']", getI18n("man_service_list_name")));
         }
         // 如果有需要先上传远程文件
         String fullpath = Thread.currentThread().getContextClassLoader().getResource("zips/").getFile()
@@ -156,7 +156,7 @@ public class ApplicationTest extends BaseTest {
             // 启动应用
             be.click("//button[@id='controlBtn']");
             refreshUntilElementPresent(be, String.format("//td[@id='ad_status']/span[text()='%s']",
-                    getMsg("man_application_list_status_run")), getCommonInt("app_start_timeout"));
+                    getI18n("man_application_list_status_run")), getCommonInt("app_start_timeout"));
             // 检查修改后的实例数/内存/URI
             be.expectElementExistOrNot(true, String.format("//td[contains(text(), '%s')]", realUri), 1000);
             assertThat(be.getText("//td[@id='ad_insatnces']"), is(String.valueOf(config.getModifyInstanceNum())));
@@ -175,7 +175,7 @@ public class ApplicationTest extends BaseTest {
             be.click("//button[@id='controlBtn']");
             // 等待直到应用状态为运行中
             refreshUntilElementPresent(be, String.format("//td[@id='ad_status']/span[text()='%s']",
-                    getMsg("man_application_list_status_run")), getCommonInt("app_start_timeout"));
+                    getI18n("man_application_list_status_run")), getCommonInt("app_start_timeout"));
             // 访问应用
             be.click("//button[@id='visitBtn']");
             String curwindow = swithLastWindow(be);
@@ -195,13 +195,13 @@ public class ApplicationTest extends BaseTest {
             logger.info("serviceName=" + serviceName);
             clickCheck(be, "//a[@id='af_services']", "//button[@id='slBuyBtn']");
             String sx = "//p/a[substring(@href, string-length(@href) - string-length('%s')+1) = '%s' and text()='%s']";
-            clickCheck(be, String.format(sx, serviceName, serviceName, getMsg("man_service_list_viewdetail")), "//button[@id='sdDeleteBtn']");
+            clickCheck(be, String.format(sx, serviceName, serviceName, getI18n("man_service_list_viewdetail")), "//button[@id='sdDeleteBtn']");
             be.click("//button[@id='sdDeleteBtn']");
             be.expectElementExistOrNot(true, "//button[@id='sdConfirmBtn']", 2000);
             be.click("//button[@id='sdConfirmBtn']");
             be.expectElementExistOrNot(true, "//button[@id='slBuyBtn']", 2000);
             // 检查服务是否已经删除了
-            be.expectElementExistOrNot(false, String.format(sx, serviceName, serviceName, getMsg("man_service_list_viewdetail")), 2000);
+            be.expectElementExistOrNot(false, String.format(sx, serviceName, serviceName, getI18n("man_service_list_viewdetail")), 2000);
         }
         logout(be);
     }

@@ -90,7 +90,7 @@ public class YamlUtil {
      * @param key
      * @return
      */
-    public static String getMsg(String key) {
+    public static String getI18n(String key) {
         return getInstance().I18N.get(key);
     }
 

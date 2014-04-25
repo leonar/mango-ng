@@ -28,7 +28,7 @@ public class ModifyPasswordTest extends BaseTest {
         be.type("//input[@name='newPasswordAgain']", newPwd);
         be.click("//button[@id='submitBtn']");
         // 更新成功
-        isTextPresent(be, getMsg("messages.41008"), true);
+        isTextPresent(be, getI18n("messages.41008"), true);
         // 使用新密码登录
         login(be, getCommonStr("base_url"), USER_NAME, newPwd);
     }
