@@ -42,11 +42,10 @@ public class ApplicationTest extends BaseTest {
             clickCheck(be, "//a[@id='af_services']", "//button[@id='slBuyBtn']");
             clickCheck(be, "//button[@id='slBuyBtn']", "//button[@id='sbBuyBtn']");
             be.click(String.format("//a[contains(@onclick, '%s')]", config.getBuyService()));
-            isElementPresent(be, "//a[starts-with(@onclick, 'removeplan')]", true);
+            be.expectElementExistOrNot(true, "//a[starts-with(@onclick, 'removeplan')]", 2000);
             be.click("//button[@id='sbBuyBtn']");
-            be.pause(10000);
-            isElementPresent(be, String.format(
-                    "//a[contains(@id, '%s')]", config.getVendorVersion()), true);
+            be.expectElementExistOrNot(true, String.format(
+                    "//a[contains(@id, '%s')]", config.getVendorVersion()), 30000);
             // 获取需要选择的服务名
             serviceName = be.getText(
                     String.format("//h4[@title='%s']", getI18n("man_service_list_name")));

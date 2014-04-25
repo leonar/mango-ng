@@ -12,7 +12,8 @@
             <!--<class name="com.winhong.core.FileViewTest"/>-->
             <!--<class name="com.winhong.core.ModifyEnvTest"/>-->
             <!--<class name="com.winhong.core.ManageUserTest"/>-->
-            <class name="com.winhong.core.BigFileUploadTest"/>
+            <!--<class name="com.winhong.core.BigFileUploadTest"/>-->
+            <class name="com.winhong.core.ServiceTest"/>
         </classes>
         <!--<packages>-->
             <!--<package name="com.winhong.core.*" />-->

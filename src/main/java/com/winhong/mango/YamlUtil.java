@@ -139,7 +139,7 @@ public class YamlUtil {
      * @param filename
      * @return
      */
-    public static List<Map<String, String>> getList(String filename) {
+    public static List<Map<String, String>> getMapList(String filename) {
         return getListData(filename);
     }
 
