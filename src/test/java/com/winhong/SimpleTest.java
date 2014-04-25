@@ -1,4 +1,4 @@
-package com.winhong.core;
+package com.winhong;
 
 import com.winhong.core.base.BaseTest;
 import com.winhong.dagger.BrowserEmulator;

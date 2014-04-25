@@ -420,6 +420,23 @@ public class BrowserEmulator {
 		}
 	}
 
+    /**
+     * 等待直到某个元素消失
+     * @param xpath
+     *            the expected element's xpath
+     * @param time
+     *            wait a moment (in millisecond) before search element on page;<br>
+     *            minus time means search element at once
+     */
+    public void waitUntilDisappear(final String xpath, int timeout) {
+        for (int i = 0; i < timeout; i += 2) {
+            if (!isElementPresent(xpath, 2000)) {
+                return;
+            }
+        }
+        handleFailure("Element will not disappear " + xpath);
+    }
+
 	/**
 	 * Is the text present on the page
 	 * @param text
