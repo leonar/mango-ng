@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.is;
  * @since 2014/4/18
  */
 public class ApplicationTest extends BaseTest {
-    private static Logger logger = Logger.getLogger(ApplicationTest.class.getName());
+    private static Logger logger = Logger.getLogger(ApplicationTest.class);
     /**
      * 上传应用
      */
@@ -204,14 +204,6 @@ public class ApplicationTest extends BaseTest {
             be.expectElementExistOrNot(false, String.format(sx, serviceName, serviceName, getMsg("man_service_list_viewdetail")), 2000);
         }
         logout(be);
-    }
-
-    /**
-     * 文件浏览
-     */
-    @Test(dataProvider = "uploadDatas", dependsOnMethods = "testUpload")
-    public void testViewFiles(AppConfig config, String key) {
-        // todo view files...
     }
 
     /**

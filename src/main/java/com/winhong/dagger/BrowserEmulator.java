@@ -499,7 +499,18 @@ public class BrowserEmulator {
 		WebElement element = this.getBrowserCore().findElement(By.xpath(xpath)); 
 		return element.getText();
 	}
-	
+
+	/**
+	 * Return attribute value from specified web element.
+	 * @param xpath
+	 * @param attr
+	 * @return
+	 */
+	public String getAttribute(String xpath, String attr) {
+		WebElement element = this.getBrowserCore().findElement(By.xpath(xpath));
+		return element.getAttribute(attr);
+	}
+
 	/**
 	 * Select an option by visible text from &lt;select&gt; web element.
 	 * @param xpath
