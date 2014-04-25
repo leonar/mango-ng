@@ -9,7 +9,8 @@
             <!--<class name="com.winhong.core.LoginTest"/>-->
             <!--<class name="com.winhong.core.ModifyPasswordTest"/>-->
             <!--<class name="com.winhong.core.ApplicationTest"/>-->
-            <class name="com.winhong.core.FileViewTest"/>
+            <!--<class name="com.winhong.core.FileViewTest"/>-->
+            <class name="com.winhong.core.ModifyEnvTest"/>
         </classes>
         <!--<packages>-->
             <!--<package name="com.winhong.core.*" />-->

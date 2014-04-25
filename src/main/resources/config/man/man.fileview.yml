@@ -1,34 +1,7 @@
 --- # 文件浏览模块
 
-# 选择文件上传类型时候的jquery实现
-vclick_even: |
-  setTimeout(function(){
-    $('.bootstrapchosen').trigger('liszt:open');
-    setTimeout(function(){
-      $('#arrangeway').val(%1$s).trigger('change');
-      $('#arrangeway_chzn_o_1').trigger('click');
-      $('.bootstrapchosen').trigger('liszt:updated');
-      $('footer').trigger('click');
-    },500)
-  },1)
-# 文件上传类型：0表示本地文件，1表示远程文件
-filetype: 0
-# 设置file的可见性，使其对于selenium可见
-file_visiable: &visiable >
-  $('#arrangelocalfile').eq(0).attr('style','height:20px;opacity:1;display:block;
-  position:static;transform:translate(0px, 0px) scale(1)')
-# 测试下yaml的锚语法
-file_visiable_1: *visiable
-# 访问应用的button点击的jquery实现
-window_open: >
-  u = $('#visitBtn').attr('onclick');
-  $('#visitBtn').attr('onclick', $('#visitBtn').attr('onclick').substring(
-  0, u.length - 1) + ", 'visitWindow')")
-
 # 上传文件路径
 upload_filename: 'simple.war'
-# 测试的应用名
-appname: 'fileviewjava'
 # 测试应用的首页的内容
 body_content: 'welcome to liyi site!'
 # 运行语言
