@@ -16,6 +16,25 @@
 * 如果是Linux上面运行，下载chromedriver文件放在/usr/local/bin/目录下面，然后mvn clean test -DChromeDriverPath=/usr/local/bin/chromedriver
 * 运行testng测试
 
+## xpath一点笔记：
+* //span[text()="webapps/"]/../.././span
+* //bookstore/book[last()]
+* /DocText/WithQuads/Page/Word[text()='July' and Quad/P1/@X > 90]
+* record[field[@id='220' and @value='Red'] and field[@id='221' and @value='Large']]
+* /Root//Person[contains(Blog,'cn') and contains(@ID,'01')]
+* //tr[td[1][text()="hello"] and td[2][contains(text(), "512M")]]
+* //td[text()="short_open_tag"]/following-sibling::td[1]
+* //td[text()="short_open_tag"]/preceding-sibling::td[1]
+* //td[starts-with(text(), "%s") and contains(text(), "disk:%sMB")]/following-sibling::td[2][contains(text(), "%s")]
+* //a[text()='x222']/../following-sibling::td[8]/a[2]
+
+## mango页面元素命名规约：
+1. html非动态生成的元素尽量都加上id，这样定位会非常快，也不会出错
+2. 页面元素最好用标准化html元素，除非必要不要复杂的CSS/JS技术实现效果
+3. window.open('xxx', 'windowName') 打开新窗口，最好指定名字
+4. 凡是能产生action的元素都应该有ID号，如果是循环产生的元素，对于每个可以产生action的元素都应有ID号
+5. 对于循环ID应该利用循环的每个值生成相应的ID，比如服务列表中购买服务的链接：id="@se.getName()_@se.getVendor()_@se.getVersion()"
+
 -----------------------------------------------------
 ## How to Contribute
 

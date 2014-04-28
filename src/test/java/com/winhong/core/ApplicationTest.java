@@ -94,15 +94,15 @@ public class ApplicationTest extends BaseTest {
         // 滚动条到页面底部
         executeJS(be, getCommonStr("scroll_bottom"));
         // 执行文件类型选择的js
-        executeJS(be, String.format(getCustom("man.application", "vclick_even"), config.getFiletype()));
+        executeJS(be, String.format(getCommonStr("vclick_even"), config.getFiletype()));
         if (config.getFiletype() == 0) {
             // 执行file可见性的js
-            executeJS(be, getCustom("man.application", "file_visiable"));
+            executeJS(be, getCommonStr("file_visiable"));
             be.expectElementExistOrNot(true, "//input[@id='arrangelocalfile']", 2000);
             be.type("//input[@id='arrangelocalfile']", fullpath.substring(1));
         } else {
             // 执行展开js
-            executeJS(be, getCustom("man.application", "vremote_even"));
+            executeJS(be, getCommonStr("vremote_even"));
             be.click(String.format("//li[text()='%s']", config.getUploadFilename()));
         }
         be.pause(1000);

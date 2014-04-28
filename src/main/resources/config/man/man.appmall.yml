@@ -1,7 +1,0 @@
---- #用户应用商城模块
-
-applist:
-  -
-    name: 'Emlog'
-  -
-    name: 'JSPWiki'

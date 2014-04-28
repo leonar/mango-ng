@@ -29,13 +29,13 @@ password_admin: '11'
 implicit_wait: 15
 # 浏览器语言：en/zh
 language: 'zh'
+
 # 滚动到页面底部js
 scroll_bottom: >
   $('html, body').animate({ scrollTop: $(document).height()-$(window).height() });
 # 滚动到页面顶部js
 scroll_top: >
   $('html, body').animate({ scrollTop: 0 }, 'slow');
-
 # 选择文件上传类型时候的jquery实现
 vclick_even: |
   setTimeout(function(){
@@ -47,15 +47,18 @@ vclick_even: |
       $('footer').trigger('click');
     },500)
   },1)
-# 文件上传类型：0表示本地文件，1表示远程文件
-filetype: 0
+# 远程文件选项时候先展开
+vremote_even: |
+  setTimeout(function(){
+    $('#arrangenetfile').trigger('liszt:open');
+  },1)
 # 设置file的可见性，使其对于selenium可见
 file_visiable: &visiable >
   $('#arrangelocalfile').eq(0).attr('style','height:20px;opacity:1;display:block;
   position:static;transform:translate(0px, 0px) scale(1)')
 # 测试下yaml的锚语法
 file_visiable_1: *visiable
-# 访问应用的button点击的jquery实现
+# 给新开窗口取名字
 window_open: >
   u = $('#visitBtn').attr('onclick');
   $('#visitBtn').attr('onclick', $('#visitBtn').attr('onclick').substring(

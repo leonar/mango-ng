@@ -1,0 +1,15 @@
+--- #用户应用商城模块
+
+upload_picname: '11.PNG'
+upload_sql: 'db-schema.sql'
+upload_filename: 'spring_mysql.zip'
+folder: '/spring_mysql/WEB-INF'
+version: '1.0'
+upload_description: 'My publish spring-web app'
+verify_explain: 'nice application, I like it.'
+my_price: '102.25'
+
+# 设置file的可见性，使其对于selenium可见
+file_visiable: >
+  $('#%s').eq(0).attr('style','height:20px;opacity:1;display:block;
+  position:static;transform:translate(0px, 0px) scale(1)')

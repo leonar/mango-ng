@@ -4,6 +4,10 @@ import com.winhong.dagger.BrowserEmulator;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
+import static com.winhong.mango.YamlUtil.USER_NAME;
+import static com.winhong.mango.YamlUtil.USER_PASSWORD;
+import static com.winhong.mango.YamlUtil.getCommonStr;
+
 import java.util.Set;
 
 /**
@@ -34,6 +38,20 @@ public class CommonUtil {
         be.type("//input[@id='password']", password);
         // 如果有退出的链接，表明登录成功了
         clickCheck(be, "//button[@id='signinBtn']", "//a[@id='logoutLink']");
+    }
+
+    /**
+     * 用户登录
+     * @param be
+     * @param isAdmin 是否管理员
+     */
+    public static void userLogin(BrowserEmulator be, boolean isAdmin) {
+        if (isAdmin) {
+            login(be, getCommonStr("base_url"),
+                    getCommonStr("username_admin"), getCommonStr("password_admin"));
+        } else {
+            login(be, getCommonStr("base_url"), USER_NAME, USER_PASSWORD);
+        }
     }
 
     /**

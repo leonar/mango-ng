@@ -421,6 +421,27 @@ public class BrowserEmulator {
 	}
 
     /**
+     * Expect an element exist in timeout milliseconds, and click it
+     * @param xpath
+     * @param timeout
+     */
+    public void expectExistAndClick(final String xpath, int timeout) {
+        expectElementExistOrNot(true, xpath, timeout);
+        click(xpath);
+    }
+
+    /**
+     * Expect an input element exist in timeout milliseconds and type text
+     * @param xpath
+     * @param timeout
+     * @param text
+     */
+    public void expectExistAndType(final String xpath, int timeout, String text) {
+        expectElementExistOrNot(true, xpath, timeout);
+        type(xpath, text);
+    }
+
+    /**
      * 等待直到某个元素消失
      * @param xpath
      *            the expected element's xpath

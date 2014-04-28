@@ -1,4 +1,4 @@
---- # 文件管理
+--- # 大文件上传管理
 
 big_file: 'php-mysql-big.zip' # 大于50M的文件
 war_file: 'spring_mysql.war'
