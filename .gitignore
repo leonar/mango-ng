@@ -5,6 +5,7 @@ fileLog
 /bin
 /.idea
 /target
+/reports
 /res/chromedriver.exe
 /res/iedriver.exe
 /screenshot
