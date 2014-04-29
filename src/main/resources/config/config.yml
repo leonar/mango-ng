@@ -8,6 +8,7 @@ brower_location: 'local'
 remote_url: 'http://10.0.0.154:4444/wd/hub'
 # 测试的url
 base_url: 'http://mango.orchard2.com'
+#base_url: 'http://localhost:9000'
 # 测试的url对应的ip地址
 base_url_ip: 'http://10.0.0.173'
 #base_url: 'http://localhost:9000'

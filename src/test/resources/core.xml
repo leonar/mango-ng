@@ -15,7 +15,9 @@
             <!--<class name="com.winhong.core.BigFileUploadTest"/>-->
             <!--<class name="com.winhong.core.ServiceTest"/>-->
             <!--<class name="com.winhong.core.SvnTest"/>-->
+            <!--<class name="com.winhong.core.Cloud9Test"/>-->
             <!--<class name="com.winhong.core.AppMarketTest"/>-->
+            <!--<class name="com.winhong.core.BillingTest"/>-->
         </classes>
         <!--<packages>-->
             <!--<package name="com.winhong.core.*" />-->

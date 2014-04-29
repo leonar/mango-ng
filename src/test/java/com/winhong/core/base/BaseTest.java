@@ -17,7 +17,7 @@ public class BaseTest {
     public void beforeclass() {
         be = new BrowserEmulator();
     }
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterclass() {
         be.quit();
     }

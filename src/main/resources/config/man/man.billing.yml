@@ -1,5 +1,7 @@
---- #用户账单模块
+--- # 账单模块，选一个已经存在的有数据的账号
 
+billing_user: 'hong@163.com'
+billing_password: '123456'
 # 历史账单查询时候执行的输入日期js
 input_date_js: >
-  $("#monthpick").val("2013-12");
+  $("#monthpick").val("%s");

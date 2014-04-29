@@ -23,7 +23,7 @@ public class AppMarketTest extends BaseTest {
     private static Logger logger = Logger.getLogger(AppMarketTest.class);
 
     @Test
-    public void testManagerUser() {
+    public void testAppmall() {
         // 管理员登陆
         login(be, getCommonStr("base_url"),
                 getCommonStr("username_admin"), getCommonStr("password_admin"));
