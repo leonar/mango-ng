@@ -206,7 +206,6 @@
                     <!--<threadCount>10</threadCount>-->
                     <suiteXmlFiles>
                         <suiteXmlFile>${basedir}/src/test/resources/core.xml</suiteXmlFile>
-                        <!--<suiteXmlFile>${basedir}/src/test/resources/sample.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
