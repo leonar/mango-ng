@@ -76,7 +76,13 @@ public class BrowserEmulator {
 				e.printStackTrace();
 			}
 			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-			capabilities.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
+            String prox = GlobalSettings.prop.getProperty("http_proxy");
+            if (prox != null) {
+                capabilities.setCapability("chrome.switches",
+                        Arrays.asList("--start-maximized", "--proxy-server=" + prox));
+            } else {
+			    capabilities.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
+            }
 			browserCore = new RemoteWebDriver(chromeServer.getUrl(), capabilities);
 			logger.info("Using Chrome");
 			return;

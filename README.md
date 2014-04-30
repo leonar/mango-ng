@@ -11,10 +11,11 @@
 
 * 先下载源代码
 * 如果需要自动重试失败案例功能，还需要再下载[arrow的源代码](https://github.com/NetEase/Dagger)，然后deploy到maven私服上去
-* 下载[chromedriver.exe](http://chromedriver.storage.googleapis.com/2.9/chromedriver_win32.zip) 和 [iedriver.exe](http://selenium.googlecode.com/files/IEDriverServer_Win32_2.39.0.zip)
-* 将上面下载的driver解压后放到res文件夹下面，名称为chromedriver.exe和iedriver.exe
+* Windows下载[chromedriver.exe](http://chromedriver.storage.googleapis.com/2.9/chromedriver_win32.zip)
+* Windows将上面下载的chromedriver.exe解压后放到res文件夹下面
+* Linux上下载[chromedriver](http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip)，并放到/usr/local/bin/下面
 * 如果是Linux上面运行，下载chromedriver文件放在/usr/local/bin/目录下面，然后mvn clean test -DChromeDriverPath=/usr/local/bin/chromedriver
-* 运行testng测试
+* 运行testng测试，写个shell脚本将运行的测试报告发到邮箱中去
 
 ## xpath一点笔记：
 * //span[text()="webapps/"]/../.././span
