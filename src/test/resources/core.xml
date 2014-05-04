@@ -1,5 +1,5 @@
 <suite reruntimes="2" thread-count="10" parallel="classes" verbose="10"
-       name="core" annotations="JDK" time-out="1800000">
+       name="CoreSuite" annotations="JDK" time-out="1800000">
 
     <test name="core-tests" junit="false" annotations="JDK" preserve-order="true">
         <classes>

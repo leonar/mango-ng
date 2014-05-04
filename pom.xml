@@ -27,11 +27,18 @@
     </repositories>
 
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>org.uncommons</groupId>-->
-            <!--<artifactId>reportng</artifactId>-->
-            <!--<version>1.1.4</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
         <dependency>
             <groupId>com.netease.qa</groupId>
             <artifactId>arrow</artifactId>
@@ -103,7 +110,15 @@
             <version>1.13</version>
         </dependency>
 
+        <!-- Start-->
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>8.7</version>
+        </dependency>
+        <!-- End-->
     </dependencies>
+
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
@@ -187,20 +202,27 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.16</version>
                 <configuration>
-                    <reportsDirectory>${test.report.dir}/${timestamp}</reportsDirectory>
+                    <reportsDirectory>${test.report.dir}</reportsDirectory>
                     <properties>
-                        <!-- Setting ReportNG listeners -->
-                        <!--<property>-->
-                            <!--<name>listener</name>-->
-                            <!--<value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>-->
-                        <!--</property>-->
+                         Setting ReportNG listeners
                         <property>
                             <name>listener</name>
-                            <value>
-                                com.netease.qa.testng.PowerEmailableReporter,com.netease.qa.testng.RetryListener,com.netease.qa.testng.TestResultListener
-                            </value>
+                            <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
                         </property>
+                        <!--<property>-->
+                            <!--<name>listener</name>-->
+                            <!--<value>-->
+                                <!--com.netease.qa.testng.PowerEmailableReporter,
+                                com.netease.qa.testng.RetryListener,com.netease.qa.testng.TestResultListener-->
+                            <!--</value>-->
+                        <!--</property>-->
                     </properties>
+                    <systemProperties>
+                        <property>
+                            <name>org.uncommons.reportng.title</name>
+                            <value>Mango Test Suite</value>
+                        </property>
+                    </systemProperties>
                     <testFailureIgnore>true</testFailureIgnore>
                     <!--<parallel>methods</parallel>-->
                     <!--<threadCount>10</threadCount>-->
@@ -208,6 +230,25 @@
                         <suiteXmlFile>${basedir}/src/test/resources/core.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+            </plugin>
+            <!-- ant插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <tasks>
+                                <ant antfile="./build.xml" />
+                            </tasks>
+                        </configuration>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

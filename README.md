@@ -15,7 +15,12 @@
 * Windows将上面下载的chromedriver.exe解压后放到res文件夹下面
 * Linux上下载[chromedriver](http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip)，并放到/usr/local/bin/下面
 * 如果是Linux上面运行，下载chromedriver文件放在/usr/local/bin/目录下面，然后mvn clean test -DChromeDriverPath=/usr/local/bin/chromedriver
-* 运行testng测试，写个shell脚本将运行的测试报告发到邮箱中去
+* 去 [testng-xslt](https://github.com/prashanth-sams/testng-xslt-1.1.2>) 下载zip包，
+  解压后把saxon-8.7.jar放到project的lib目录下，
+  然后再把/src/main/resources/testng-results.xsl放到你的test-output目录下
+* 运行testng测试：mvn clean test
+* 最后会在test-output/perfect目录下面生成非常好看的测试报告！
+
 
 ## xpath一点笔记：
 * //span[text()="webapps/"]/../.././span

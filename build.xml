@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="testTng" basedir="." default="transform">
+    <property name="lib.dir" value="lib"/>
+    <path id="test.classpath">
+        <!-- adding the saxon jar to your classpath -->
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+    </path>
+    <target name="transform">
+        <xslt in="${basedir}/reports/testng-results.xml"
+              style="${basedir}/test-output/testng-results.xsl"
+              out="${basedir}/test-output/perfect/index.html"
+              classpathref="test.classpath">
+            <!-- you need to specify the directory here again -->
+            <param name="testNgXslt.outputDir" expression="${basedir}/test-output/perfect"/>
+            <param name="testNgXslt.showRuntimeTotals" expression="true"/>
+            <!--<classpath refid="compile.path" />-->
+        </xslt>
+    </target>
+</project>
