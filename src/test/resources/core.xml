@@ -36,9 +36,9 @@
             <class name="com.winhong.core.base.DataInitDestroy" />
             <class name="com.winhong.core.base.BaseTest" />
 
-            <!-- 应用商城只完成一部分 -->
+            <!-- app is not implemented completely -->
             <class name="com.winhong.core.AppMarketTest"/>
-            <!-- 下面两个目前还有些小问题 -->
+            <!-- small problem in the following two tests -->
             <!--<class name="com.winhong.core.BillingTest"/>-->
             <!--<class name="com.winhong.core.Cloud9Test"/>-->
         </classes>
