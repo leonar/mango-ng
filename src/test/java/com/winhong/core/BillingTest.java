@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import static com.winhong.mango.CommonUtil.*;
+import static com.winhong.mango.Operations.*;
 import static com.winhong.mango.YamlUtil.*;
 import static com.winhong.mango.Arith.*;
 import static org.hamcrest.MatcherAssert.assertThat;

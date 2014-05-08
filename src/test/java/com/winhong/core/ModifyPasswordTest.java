@@ -1,11 +1,11 @@
 package com.winhong.core;
 
 import com.winhong.core.base.BaseTest;
-import com.winhong.mango.CommonUtil;
+import com.winhong.mango.Operations;
 import com.winhong.mango.RandomString;
 import org.testng.annotations.Test;
 
-import static com.winhong.mango.CommonUtil.*;
+import static com.winhong.mango.Operations.*;
 import static com.winhong.mango.YamlUtil.*;
 
 /**
@@ -53,7 +53,7 @@ public class ModifyPasswordTest extends BaseTest {
 
         logout(be);
         // 管理员登录，删除这个测试注册用户
-        CommonUtil.userLogin(be, true);
+        Operations.userLogin(be, true);
         // 点击用户管理
         be.click("//a[@id='ausers']");
         be.expectElementExistOrNot(true, String.format("//a[@id='del_%s']", username), 2000);

@@ -4,8 +4,8 @@ import com.winhong.core.base.BaseTest;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
-import static com.winhong.mango.CommonUtil.clickCheck;
-import static com.winhong.mango.CommonUtil.login;
+import static com.winhong.mango.Operations.clickCheck;
+import static com.winhong.mango.Operations.login;
 import static com.winhong.mango.YamlUtil.*;
 
 /**

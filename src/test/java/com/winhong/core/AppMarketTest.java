@@ -1,11 +1,12 @@
 package com.winhong.core;
 
 import com.winhong.core.base.BaseTest;
+import com.winhong.mango.CommonUtil;
 import com.winhong.mango.RandomString;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
-import static com.winhong.mango.CommonUtil.*;
+import static com.winhong.mango.Operations.*;
 import static com.winhong.mango.YamlUtil.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -45,8 +46,8 @@ public class AppMarketTest extends BaseTest {
 
         // 准备数据
         String configFileKey = "man.appmarket";
-        String zippath = Thread.currentThread().getContextClassLoader().getResource("zips/").getFile().substring(1);
-        String pubpath = Thread.currentThread().getContextClassLoader().getResource("zips/publish/").getFile().substring(1);
+        String zippath = CommonUtil.getDirPath("zips/");
+        String pubpath = CommonUtil.getDirPath("zips/publish/");
         String app_upload_picname = getCustom(configFileKey, "upload_picname");
         String app_upload_sql = getCustom(configFileKey, "upload_sql");
         String app_upload_filename = getCustom(configFileKey, "upload_filename");

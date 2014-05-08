@@ -4,7 +4,7 @@ import com.winhong.core.base.BaseTest;
 import org.testng.annotations.Test;
 
 import static com.winhong.mango.YamlUtil.*;
-import static com.winhong.mango.CommonUtil.*;
+import static com.winhong.mango.Operations.*;
 
 /**
  * 登录测试类

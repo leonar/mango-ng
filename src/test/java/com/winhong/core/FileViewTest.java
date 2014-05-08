@@ -2,13 +2,14 @@ package com.winhong.core;
 
 import com.winhong.core.base.BaseTest;
 import com.winhong.mango.AppConfig;
+import com.winhong.mango.CommonUtil;
 import com.winhong.mango.RandomString;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 import java.util.Map;
 
-import static com.winhong.mango.CommonUtil.*;
+import static com.winhong.mango.Operations.*;
 import static com.winhong.mango.YamlUtil.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -38,8 +39,7 @@ public class FileViewTest extends BaseTest{
         config.setAppname(new RandomString(8).randomName());
         logger.info("+++++++++++++++++++++appname:" + config.getAppname());
         logger.info("+++++++++++++++++++++username:" + USER_NAME);
-        String fullpath = Thread.currentThread().getContextClassLoader().getResource("zips/").getFile()
-                + config.getUploadFilename();
+        String fullpath = CommonUtil.getDirPath("zips/") + config.getUploadFilename();
         // 登录
         login(be, getCommonStr("base_url"), USER_NAME, USER_PASSWORD);
         // 点击我的应用
@@ -64,7 +64,7 @@ public class FileViewTest extends BaseTest{
         // 执行file可见性的js
         executeJS(be, getCustom("man.application", "file_visiable"));
         be.expectElementExistOrNot(true, "//input[@id='arrangelocalfile']", 2000);
-        be.type("//input[@id='arrangelocalfile']", fullpath.substring(1));
+        be.type("//input[@id='arrangelocalfile']", fullpath);
         be.pause(1000);
         be.click("//button[@id='submitButton']");
         be.expectElementExistOrNot(true, "//div[@id='listMydeployTitle']", 60000);

@@ -1,5 +1,7 @@
 --- #公共配置
 
+# 操作系统类型： windows/linux
+os_type: 'windows'
 # 浏览器类型：firefox/chrome/ie
 brower: 'chrome'
 # 运行测试的浏览器位置：local/remote

@@ -1,10 +1,7 @@
 package com.winhong;
 
-import com.winhong.core.base.BaseTest;
 import com.winhong.dagger.BrowserEmulator;
-import com.winhong.mango.CommonUtil;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import com.winhong.mango.Operations;
 import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
@@ -29,7 +26,7 @@ public class SimpleTest {
         System.out.println(be.getBrowserCore().findElementByXPath(frameinput).isDisplayed());
         System.out.println(be.getBrowserCore().findElementByXPath(frameinput).isEnabled());
         be.expectElementExistOrNot(true, frameinput, 2000);
-        CommonUtil.executeJS(be, "window.open('http://www.google.com.hk', 'new_window')");
+        Operations.executeJS(be, "window.open('http://www.google.com.hk', 'new_window')");
         String current = be.getBrowserCore().getWindowHandle();
         be.selectWindow("new_window");
         be.getBrowserCore().manage().window().maximize();

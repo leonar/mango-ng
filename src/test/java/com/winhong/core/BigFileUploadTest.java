@@ -1,8 +1,7 @@
 package com.winhong.core;
 
 import com.winhong.core.base.BaseTest;
-import com.winhong.dagger.BrowserEmulator;
-import com.winhong.mango.RandomString;
+import com.winhong.mango.CommonUtil;
 import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 
-import static com.winhong.mango.CommonUtil.*;
+import static com.winhong.mango.Operations.*;
 import static com.winhong.mango.YamlUtil.*;
 import static org.hamcrest.Matchers.not;
 
@@ -32,7 +31,7 @@ public class BigFileUploadTest extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
-        zipPath = Thread.currentThread().getContextClassLoader().getResource("zips/").getFile().substring(1);
+        zipPath = CommonUtil.getDirPath("zips/");
         config = getMapData("man.uploadfile");
     }
 

@@ -2,6 +2,7 @@ package com.winhong.core;
 
 import com.winhong.core.base.BaseTest;
 import com.winhong.mango.AppConfig;
+import com.winhong.mango.CommonUtil;
 import com.winhong.mango.RandomString;
 import org.apache.log4j.Logger;
 import org.testng.annotations.DataProvider;
@@ -10,7 +11,7 @@ import org.testng.annotations.Test;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.winhong.mango.CommonUtil.*;
+import static com.winhong.mango.Operations.*;
 import static com.winhong.mango.YamlUtil.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -51,8 +52,7 @@ public class ApplicationTest extends BaseTest {
                     String.format("//h4[@title='%s']", getI18n("man_service_list_name")));
         }
         // 如果有需要先上传远程文件
-        String fullpath = Thread.currentThread().getContextClassLoader().getResource("zips/").getFile()
-                + config.getUploadFilename();
+        String fullpath = CommonUtil.getDirPath("zips/") + config.getUploadFilename();
         if (config.getFiletype() == 1) {
             // 点击文件管理
             be.click("//a[@id='uploadFileLink']");
@@ -63,7 +63,7 @@ public class ApplicationTest extends BaseTest {
             executeJS(be, config.getFileVisiable());
             be.pause(1000);
             isElementPresent(be, "//input[@id='fileChoose']", true);
-            be.type("//input[@id='fileChoose']", fullpath.substring(1));
+            be.type("//input[@id='fileChoose']", fullpath);
             be.pause(500);
             be.click("//a[@id='uploadButton']");
             be.expectElementExistOrNot(true, String.format("//td[text()='%s']", config.getUploadFilename()), 20000);
@@ -99,7 +99,7 @@ public class ApplicationTest extends BaseTest {
             // 执行file可见性的js
             executeJS(be, getCommonStr("file_visiable"));
             be.expectElementExistOrNot(true, "//input[@id='arrangelocalfile']", 2000);
-            be.type("//input[@id='arrangelocalfile']", fullpath.substring(1));
+            be.type("//input[@id='arrangelocalfile']", fullpath);
         } else {
             // 执行展开js
             executeJS(be, getCommonStr("vremote_even"));

@@ -1,7 +1,7 @@
 package com.winhong.core.base;
 
 import com.winhong.dagger.BrowserEmulator;
-import com.winhong.mango.CommonUtil;
+import com.winhong.mango.Operations;
 import com.winhong.mango.RandomString;
 import com.winhong.mango.YamlUtil;
 import org.testng.annotations.AfterSuite;
@@ -26,7 +26,7 @@ public class DataInitDestroy {
 
         // 管理员登录创建这个新的测试账号
         BrowserEmulator browser = new BrowserEmulator();
-        CommonUtil.login(browser, getCommonStr("base_url"),
+        Operations.login(browser, getCommonStr("base_url"),
                 getCommonStr("username_admin"), getCommonStr("password_admin"));
         // 点击用户管理
         browser.click("//a[@id='ausers']");
@@ -47,7 +47,7 @@ public class DataInitDestroy {
     public void testAfterSuite() {
         BrowserEmulator browser = new BrowserEmulator();
         // 管理员登录创建这个新的测试账号
-        CommonUtil.login(browser, getCommonStr("base_url"),
+        Operations.login(browser, getCommonStr("base_url"),
                 getCommonStr("username_admin"), getCommonStr("password_admin"));
         // 点击用户管理
         browser.click("//a[@id='ausers']");
